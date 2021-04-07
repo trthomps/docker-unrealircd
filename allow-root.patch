@@ -1,0 +1,24 @@
+--- src/ircd.c.orig	2021-04-06 19:54:10.000000000 -0700
++++ src/ircd.c	2021-04-06 20:11:31.000000000 -0700
+@@ -952,21 +952,6 @@
+ 	euid = geteuid();
+ 	gid = getgid();
+ 	egid = getegid();
+-
+-	if (euid == 0)
+-	{
+-		fprintf(stderr,
+-			"** ERROR **\n"
+-			"You attempted to run UnrealIRCd as root. This is VERY DANGEROUS\n"
+-			"as any compromise of your UnrealIRCd will result in full\n"
+-			"privileges to the attacker on the entire machine.\n"
+-			"You MUST start UnrealIRCd as a different user!\n"
+-			"\n"
+-			"For more information, see:\n"
+-			"https://www.unrealircd.org/docs/Do_not_run_as_root\n"
+-			"\n");
+-		exit(1);
+-	}
+ #endif
+ #ifndef _WIN32
+ 	myargv = argv;
