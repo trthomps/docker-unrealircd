@@ -21,6 +21,7 @@ jobs:
       - name: Get unrealircd version
         run: echo "::set-output name=version::$(grep -E 'ENV VERSION' Dockerfile | cut -d'=' -f 2)"
         id: get_version
+        uses: actions/checkout@v2
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
