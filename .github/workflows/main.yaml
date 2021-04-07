@@ -19,7 +19,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Get unrealircd version
-        run: echo "::set-output name=version::$(grep -E 'ENV VERSION' Dockerfile | cut -d'=' -f 2)'
+        run: echo "::set-output name=version::$(grep -E 'ENV VERSION' Dockerfile | cut -d'=' -f 2)"
         id: get_version
       - name: Build and push
         id: docker_build
